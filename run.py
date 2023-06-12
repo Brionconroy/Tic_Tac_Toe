@@ -55,6 +55,7 @@ def print_board(coordinate):
     print(game_board)
 
 def check_turn(turn):
+
     if turn % 2 == 0: return "O"
     else: return "X"
 
@@ -63,15 +64,28 @@ playing_game = True
 
 turn = 0
 
+last_turn = -1
+
 while playing_game:
-    # Resets the screen
+    # Keeps the same board on the screen.
     os.system("cls" if os.name == "nt" else "clear") # This code was taken from CScode
     print_board(coordinate)
-    # Player input
+    # Print statment of an invalid trun.
+    if last_turn == turn:
+        print("Someone has already gone there. pick another coordinate and try again")
+    last_turn = turn
+    print("Player " + str((turn % 2) + 1) + "'s turn: Pick your coordinate on the board")
+    # Player input.
     users_turn = input()
     if users_turn == "e":
-        # End the game
+        print("Goodbye...")
+        # Exit the game.
         playing_game = False
+        # Check if the user has has entered a valid input from 1 to 9.
+    elif str.isdigit(users_turn) and int(users_turn) in coordinate:
+        # Make sure spot has not been taken already.
+        if not coordinate[int(users_turn)] in {"X", "O"}:
+            # Validates input to the board and updates the board.
+              turn += 1
+              coordinate[int(users_turn)] = check_turn(turn)
 
-    turn += 1
-    coordinate[int(users_turn)] = check_turn(turn)
