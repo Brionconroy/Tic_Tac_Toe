@@ -28,8 +28,20 @@ def welcome_message():
     print("All spaces on the board taken up be counters will result in a draw")
     print("To exit the game at any time press 'e")
 
-    username = input("Enter user name: ")
-    print(f"You're going down {username}!")
+def get_user_name():
+    """
+    Get users name and make sure the there is input validation.
+    """
+    print("Enter user name: ")
+    while True:
+        username = input("My name is: ")
+        if not username.isalpha():
+            print("Accept alphabetical characters only! Try again")
+            continue
+        else:
+            print(f"You're going down {username}!")
+            break
+    return username
 
 def print_board(coordinate):
     """
@@ -63,4 +75,3 @@ while playing_game:
 
     turn += 1
     coordinate[int(users_turn)] = check_turn(turn)
-
