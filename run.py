@@ -1,4 +1,5 @@
 import gspread
+import os
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -25,6 +26,7 @@ def welcome_message():
     print("The board is 3x3")
     print("To win join three counters in a row before the computer")
     print("All spaces on the board taken up be counters will result in a draw")
+    print("To exit the game at any time press 'e")
 
     username = input("Enter user name: ")
     print(f"You're going down {username}!")
@@ -40,5 +42,25 @@ def print_board(coordinate):
                     )
     print(game_board)
 
+def check_turn(turn):
+    if turn % 2 == 0: return "O"
+    else: return "X"
 
-print_board(coordinate)
+
+playing_game = True
+
+turn = 0
+
+while playing_game:
+    # Resets the screen
+    os.system("cls" if os.name == "nt" else "clear") # This code was taken from CScode
+    print_board(coordinate)
+    # Player input
+    users_turn = input()
+    if users_turn == "e":
+        # End the game
+        playing_game = False
+
+    turn += 1
+    coordinate[int(users_turn)] = check_turn(turn)
+
