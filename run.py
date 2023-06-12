@@ -20,7 +20,6 @@ def welcome_message():
     Welcomes the user to the game and asks them to input there name
     and exlains the roles of Tic-Tac_Toe to the user.
     """
-
     print("Well Hello there!")
     print("welcome to Tic-Tac-Toe")
     print("The board is 3x3")
@@ -30,7 +29,7 @@ def welcome_message():
 
 def get_user_name():
     """
-    Get users name and make sure the there is input validation.
+    Get users name and make sure that there is input validation.
     """
     print("Enter user name: ")
     while True:
@@ -59,6 +58,17 @@ def check_turn(turn):
     if turn % 2 == 0: return "O"
     else: return "X"
 
+def winning_condtions(coordinate):
+    """
+    This finction determines the winning condtions for the game.
+    """
+    if (coordinate[1] == coordinate[5] == coordinate[9]) \
+       or (coordinate[3] == coordinate[5] == coordinate[7]):
+       return True
+    elif (coordinate[1] == coordinate[4] == coordinate[7]) \
+       or (coordinate[2] == coordinate[5] == coordinate[8]) \
+       or (coordinate[3] == coordinate[6] == coordinate[9]):
+       return True
 
 playing_game = True
 
@@ -77,15 +87,15 @@ while playing_game:
     print("Player " + str((turn % 2) + 1) + "'s turn: Pick your coordinate on the board")
     # Player input.
     users_turn = input()
+    # Exit the game.
     if users_turn == "e":
         print("Goodbye...")
-        # Exit the game.
         playing_game = False
         # Check if the user has has entered a valid input from 1 to 9.
     elif str.isdigit(users_turn) and int(users_turn) in coordinate:
         # Make sure spot has not been taken already.
         if not coordinate[int(users_turn)] in {"X", "O"}:
-            # Validates input to the board and updates the board.
+            # Validates input to the board and updates the board, if valid input.
               turn += 1
               coordinate[int(users_turn)] = check_turn(turn)
 
