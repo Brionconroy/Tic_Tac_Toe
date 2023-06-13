@@ -114,6 +114,16 @@ while playing_game:
     # Draw result
     if turn > 8: playing_game = False
 
+os.system("cls" if os.name == "nt" else "clear") # This code was taken from CScode
+print_board(coordinate)
 
+if end_game:
+    if check_turn(turn) == "X": print("player 1 wins")
+    else: print("player 2 wins")
+else:
+    # Draw result.
+    print("It's a Draw!")
+
+print("Good Game!")
 
 
