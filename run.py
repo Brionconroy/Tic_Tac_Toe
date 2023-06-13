@@ -31,16 +31,16 @@ def get_user_name():
     """
     Get users name and make sure that there is input validation.
     """
-    print("Enter user name: ")
     while True:
-        username = input("My name is: ")
+        username = input("Enter Player 1 name: ")
         if not username.isalpha():
             print("Accept alphabetical characters only! Try again")
             continue
         else:
-            print(f"You're going down {username}!")
+            print(f"Good luck {username}!")
             break
     return username
+
 
 def print_board(coordinate):
     """
@@ -58,7 +58,7 @@ def check_turn(turn):
     if turn % 2 == 0: return "O"
     else: return "X"
 
-def winning_condtions(coordinate):
+def winning_conditions(coordinate):
     """
     This finction determines the winning condtions for the game.
     """
@@ -77,9 +77,15 @@ def winning_condtions(coordinate):
 
 playing_game = True
 
+end_game = False
+
 turn = 0
 
 last_turn = -1
+
+welcome_message()
+get_user_name_1()
+
 
 while playing_game:
     # Keeps the same board on the screen.
@@ -103,4 +109,11 @@ while playing_game:
             # Validates input to the board and updates the board, if valid input.
               turn += 1
               coordinate[int(users_turn)] = check_turn(turn)
+        # Check for a win.
+    if winning_conditions(coordinate): playing_game, end_game = False, True
+    # Draw result
+    if turn > 8: playing_game = False
+
+
+
 
