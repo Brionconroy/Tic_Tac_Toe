@@ -1,3 +1,73 @@
+# TIC-TAC-Toe Python
+
+## Introduction
+
+Tic-tac-toe is a game where you must place three counters in a row to win. The board is 3 x 3, after each time you place a counter your apponent makes there move. if no one wins by the time all the counters are placed the result in a draw.
+
+## User Experience (UX)
+
+As a new visitor to the site, I want to be able to quickly and simply understand what the game is and the how to play.
+
+# Features
+
+## Rules
+
+The instructions for the game appear as you start the program. 
+
+## User name input
+
+Each player is then asked for there name. This is so it can be added to a google sheets to keep a record of who wins the game.
+
+## Game board
+
+The game board is 3x3 each, a dictionary was used to map the coordenats and to save the data on the board.
+
+## Result section
+
+who ever wins the game will get congradulations.
+
+If it is a draw that will olse be agnolaged 
+
+## Features I'd like to add
+
+- Score counter
+- Play agianst the computer.
+- Make the game more visualy attractive by adding colour.
+- Extra game modes.
+
+## Bugs
+
+
+## Testing
+
+I have tested this game in the folloing ways:
+
+- I used the Ad-hoc test in Gitpod while i was making this game.
+- I manulay tested the game by inputting in invalid data to the terminal, no errors where found.
+- I passed my code throught the PEP8 validator with no errors.
+- I tested the game in the terminal in Heroku, everthing worked perfecrt.
+
+## Validation Testing
+
+No errors where found when passing through the PEP8 validater.
+
+## Deployment
+
+
+## Credits
+
+
+## Content
+
+
+
+
+
+
+
+
+
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome,
