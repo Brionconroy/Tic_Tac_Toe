@@ -69,6 +69,11 @@ def winning_condtions(coordinate):
        or (coordinate[2] == coordinate[5] == coordinate[8]) \
        or (coordinate[3] == coordinate[6] == coordinate[9]):
        return True
+    elif (coordinate[1] == coordinate[2] == coordinate[3]) \
+       or (coordinate[4] == coordinate[5] == coordinate[6]) \
+       or (coordinate[7] == coordinate[8] == coordinate[9]):
+       return True
+    else: return False
 
 playing_game = True
 
