@@ -27,12 +27,26 @@ def welcome_message():
     print("All spaces on the board taken up be counters will result in a draw")
     print("To exit the game at any time press 'e")
 
-def get_user_name():
+def get_user_name_1():
     """
     Get users name and make sure that there is input validation.
     """
     while True:
         username = input("Enter Player 1 name: ")
+        if not username.isalpha():
+            print("Accept alphabetical characters only! Try again")
+            continue
+        else:
+            print(f"Good luck {username}!")
+            break
+    return username
+
+    def get_user_name_2():
+    """
+    Get users name and make sure that there is input validation.
+    """
+    while True:
+        username = input("Enter player 2 name: ")
         if not username.isalpha():
             print("Accept alphabetical characters only! Try again")
             continue
@@ -85,6 +99,7 @@ last_turn = -1
 
 welcome_message()
 get_user_name_1()
+get_user_name_2()
 
 
 while playing_game:
