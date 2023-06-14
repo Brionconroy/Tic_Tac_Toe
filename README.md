@@ -4,6 +4,8 @@
 
 In the game tic-tac-toe you must place three counters in a row to win. The board is 3 x 3. After each time you place a counter your opponent makes their move. If no one wins by the time all the counters are placed, the result is a draw.
 
+My live project [Click Me](https://tic-tac-toe-bc.herokuapp.com/)
+
 ## User Experience (UX)
 
 As a new visitor to the site, I want to be able to understand quickly and simply what the game is and how to play.
