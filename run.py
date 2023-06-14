@@ -12,6 +12,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('tic_tac_toe')
+WORKSHEET = SHEET.worksheet('high_score')
 
 coordinate = {1: "1", 2: "2", 3: "3", 4: "4",
               5: "5", 6: "6", 7: "7", 8: "8", 9: "9"}
@@ -30,7 +31,7 @@ def welcome_message():
     print("To exit the game at any time press 'e")
 
 
-def get_user_name_1():
+def get_user_name_1(input_row):
     """
     Get users name and make sure that there is input validation.
     """
@@ -42,8 +43,7 @@ def get_user_name_1():
         else:
             print(f"Good luck {username}!")
             break
-    return username
-
+    WORKSHEET.update_cell(2,1, username)        
 
 def get_user_name_2():
     """
@@ -57,7 +57,13 @@ def get_user_name_2():
         else:
             print(f"Good luck {username}!")
             break
+    WORKSHEET.update_cell(2,2, username)        
     return username
+
+def get_last_row_that_has_input():
+    return len(WORKSHEET.get_all_values()) + 1
+
+ 
 
 
 def print_board(coordinate):
@@ -111,7 +117,8 @@ last_turn = -1
 
 
 welcome_message()
-get_user_name_1()
+input_row = get_last_row_that_has_input()
+get_user_name_1(input_row)
 get_user_name_2()
 
 
