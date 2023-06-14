@@ -17,6 +17,14 @@ WORKSHEET = SHEET.worksheet('high_score')
 coordinate = {1: "1", 2: "2", 3: "3", 4: "4",
               5: "5", 6: "6", 7: "7", 8: "8", 9: "9"}
 
+playing_game = True
+
+end_game = False
+
+turn = 0
+
+last_turn = -1
+
 
 def welcome_message():
     """
@@ -45,7 +53,7 @@ def get_user_name_1(input_row):
             break
     WORKSHEET.update_cell(2,1, username)        
 
-def get_user_name_2():
+def get_user_name_2(input_row):
     """
     Get users name and make sure that there is input validation.
     """
@@ -60,12 +68,11 @@ def get_user_name_2():
     WORKSHEET.update_cell(2,2, username)        
     return username
 
+
 def get_last_row_that_has_input():
     return len(WORKSHEET.get_all_values()) + 1
 
  
-
-
 def print_board(coordinate):
     """
     The function creates the game board in the terminal.
@@ -103,23 +110,11 @@ def winning_conditions(coordinate):
     else:
         return False
 
-
-playing_game = True
-
-
-end_game = False
-
-
-turn = 0
-
-
-last_turn = -1
-
+input_row = get_last_row_that_has_input()
 
 welcome_message()
-input_row = get_last_row_that_has_input()
 get_user_name_1(input_row)
-get_user_name_2()
+get_user_name_2(input_row)
 
 
 while playing_game:
@@ -157,10 +152,14 @@ os.system("cls" if os.name == "nt" else "clear")
 print_board(coordinate)
 
 if end_game:
+    # winning result
     if check_turn(turn) == "X":
         print("player 1 wins")
     else:
         print("player 2 wins")
+    # Exit game
+elif users_turn == "e":
+        print("Goodbye...")
 else:
     # Draw result.
     print("It's a Draw!")
