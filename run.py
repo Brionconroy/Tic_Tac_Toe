@@ -154,14 +154,18 @@ print_board(coordinate)
 if end_game:
     # winning result
     if check_turn(turn) == "X":
+        WORKSHEET.update_cell(2,3, "Player 1")
         print("player 1 wins")
     else:
+        WORKSHEET.update_cell(2,3, "Player 2")
         print("player 2 wins")
     # Exit game
 elif users_turn == "e":
+        WORKSHEET.update_cell(2,3, "Game Not Finished")
         print("Goodbye...")
 else:
     # Draw result.
+    WORKSHEET.update_cell(2,3, "Draw")
     print("It's a Draw!")
 
 print("Good Game!")
