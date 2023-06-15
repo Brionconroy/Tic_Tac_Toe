@@ -15,33 +15,40 @@ As a new visitor to the site, I want to be able to understand quickly and simply
 ## Rules
 
 ![](images/readme.md_images/welcome message.png)
+
 The instructions for the game appear as you start the program.
 
 ## User name input
 
 ![](images/readme.md_images/player_name_feedback.png)
+
 Each player is then asked for their name. This is so it can be added to Google sheets to keep a record of who wins the game.
 
 ## Game board
 
 ![](images/readme.md_images/game_board.png)
+
 The game board is 3 x 3. A dictionary was used to map the coordinates and to save the data on the game board.
 
 ## Spot validation
 
 ![](images/readme.md_images/spot_validation.png)
+
 If you have already picked a spot on the game board you will get message saying spot has already been taken.
 
 ## Exit game
 ![](images/readme.md_images/exit_message.png)
+
 You can exit the game at any time by pressing 'e'.
 
 ## Result section
 
 ![](images/readme.md_images/winning_notice.png)
+
 Whoever wins the game will get congratulations.
 
 ![](images/readme.md_images/draw_message.png)
+
 If it is a draw that will also be acknowledged. 
 
 ## Features I'd like to add
