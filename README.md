@@ -14,7 +14,7 @@ As a new visitor to the site, I want to be able to understand quickly and simply
 
 ## Rules
 
-![](images/readme.md_images/welcome message.png)
+![](images/readme.md_images/welcome_message.png)
 
 The instructions for the game appear as you start the program.
 
