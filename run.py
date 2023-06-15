@@ -31,11 +31,9 @@ def welcome_message():
     Welcomes the user to the game and asks them to input there name
     and exlains the roles of Tic-Tac_Toe to the user.
     """
-    print("Well Hello there!")
-    print("welcome to Tic-Tac-Toe")
-    print("The board is 3x3")
+    print("Well Hello there and welcome to Tic-Tac-Toe")
     print("To win join three counters in a row before your opponent")
-    print("All spaces on the board taken up be counters will result in a draw")
+    print("A draw will accoure when neither players can place a counter")
     print("To exit the game at any time press 'e")
 
 
@@ -94,7 +92,9 @@ def print_board(coordinate):
 
 
 def check_turn(turn):
-
+    """
+    This fucntion checks who's turn it is.
+    """
     if turn % 2 == 0:
         return "O"
     else:
@@ -105,13 +105,16 @@ def winning_conditions(coordinate):
     """
     This finction determines the winning condtions for the game.
     """
+    # This checks the winning condtions on the diaganals 
     if (coordinate[1] == coordinate[5] == coordinate[9]) \
        or (coordinate[3] == coordinate[5] == coordinate[7]):
         return True
+    # This checks the winning condtions on the verticals 
     elif (coordinate[1] == coordinate[4] == coordinate[7]) \
         or (coordinate[2] == coordinate[5] == coordinate[8]) \
             or (coordinate[3] == coordinate[6] == coordinate[9]):
         return True
+    # This checks the winning condtions on the horizontals
     elif (coordinate[1] == coordinate[2] == coordinate[3]) \
         or (coordinate[4] == coordinate[5] == coordinate[6]) \
             or (coordinate[7] == coordinate[8] == coordinate[9]):
