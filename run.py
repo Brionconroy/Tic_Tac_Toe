@@ -34,12 +34,12 @@ def welcome_message():
     print("Well Hello there!")
     print("welcome to Tic-Tac-Toe")
     print("The board is 3x3")
-    print("To win join three counters in a row before the computer")
+    print("To win join three counters in a row before your opponent")
     print("All spaces on the board taken up be counters will result in a draw")
     print("To exit the game at any time press 'e")
 
 
-def get_user_name_1(input_row):
+def get_user_name_1():
     """
     Get users name and make sure that there is input validation.
     """
@@ -53,7 +53,7 @@ def get_user_name_1(input_row):
             break
     WORKSHEET.update_cell(2,1, username)        
 
-def get_user_name_2(input_row):
+def get_user_name_2():
     """
     Get users name and make sure that there is input validation.
     """
@@ -70,7 +70,16 @@ def get_user_name_2(input_row):
 
 
 def get_last_row_that_has_input():
-    return len(WORKSHEET.get_all_values()) + 1
+    """
+    This fucntion checks if there is a value in
+    the google sheets cell, if so it goes to the next cell.
+    """
+    i = 1
+    while WORKSHEET.cell(i,1).value != "":
+        i = i + 1
+        break
+        
+    WORKSHEET.update_cell(i,1, "test")
 
  
 def print_board(coordinate):
@@ -113,8 +122,8 @@ def winning_conditions(coordinate):
 input_row = get_last_row_that_has_input()
 
 welcome_message()
-get_user_name_1(input_row)
-get_user_name_2(input_row)
+get_user_name_1()
+get_user_name_2()
 
 
 while playing_game:
