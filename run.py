@@ -37,34 +37,22 @@ def welcome_message():
     print("To exit the game at any time press 'e")
 
 
-def get_user_name_1():
+def get_user_name(player, row):
     """
     Get users name and make sure that there is input validation.
     """
     while True:
-        username = input("Enter Player 1 name: ")
+        username = input("Enter Player"+str(player)+" name: ")
         if not username.isalpha():
             print("Accept alphabetical characters only! Try again")
             continue
         else:
             print(f"Good luck {username}!")
             break
-    WORKSHEET.update_cell(2,1, username)        
-
-def get_user_name_2():
-    """
-    Get users name and make sure that there is input validation.
-    """
-    while True:
-        username = input("Enter player 2 name: ")
-        if not username.isalpha():
-            print("Accept alphabetical characters only! Try again")
-            continue
-        else:
-            print(f"Good luck {username}!")
-            break
-    WORKSHEET.update_cell(2,2, username)        
-    return username
+    if player == 1:
+        WORKSHEET.update_cell(row, 1, username)
+    else:
+        WORKSHEET.update_cell(row, 2, username)
 
 
 def get_last_row_that_has_input():
@@ -73,13 +61,11 @@ def get_last_row_that_has_input():
     the google sheets cell, if so it goes to the next cell.
     """
     i = 1
-    while WORKSHEET.cell(i,1).value != "":
+    if WORKSHEET.cell(i, 1).value is not None:
         i = i + 1
-        break
-        
-    WORKSHEET.update_cell(i,1, "test")
+    return i
 
- 
+
 def print_board(coordinate):
     """
     The function creates the game board in the terminal.
@@ -105,11 +91,11 @@ def winning_conditions(coordinate):
     """
     This finction determines the winning condtions for the game.
     """
-    # This checks the winning condtions on the diaganals 
+    # This checks the winning condtions on the diaganals
     if (coordinate[1] == coordinate[5] == coordinate[9]) \
        or (coordinate[3] == coordinate[5] == coordinate[7]):
         return True
-    # This checks the winning condtions on the verticals 
+    # This checks the winning condtions on the verticals
     elif (coordinate[1] == coordinate[4] == coordinate[7]) \
         or (coordinate[2] == coordinate[5] == coordinate[8]) \
             or (coordinate[3] == coordinate[6] == coordinate[9]):
@@ -122,11 +108,13 @@ def winning_conditions(coordinate):
     else:
         return False
 
+
 input_row = get_last_row_that_has_input()
 
+
 welcome_message()
-get_user_name_1()
-get_user_name_2()
+get_user_name(1, input_row)
+get_user_name(2, input_row)
 
 
 while playing_game:
@@ -166,18 +154,18 @@ print_board(coordinate)
 if end_game:
     # winning result
     if check_turn(turn) == "X":
-        WORKSHEET.update_cell(2,3, "Player 1")
+        WORKSHEET.update_cell(input_row, 3, "Player 1")
         print("player 1 wins")
     else:
-        WORKSHEET.update_cell(2,3, "Player 2")
+        WORKSHEET.update_cell(input_row, 3, "Player 2")
         print("player 2 wins")
     # Exit game
 elif users_turn == "e":
-        WORKSHEET.update_cell(2,3, "Game Not Finished")
-        print("Goodbye...")
+    WORKSHEET.update_cell(input_row, 3, "Game Not Finished")
+    print("Goodbye...")
 else:
     # Draw result.
-    WORKSHEET.update_cell(2,3, "Draw")
+    WORKSHEET.update_cell(input_row, 3, "Draw")
     print("It's a Draw!")
 
 print("Good Game!")
