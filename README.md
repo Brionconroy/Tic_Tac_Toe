@@ -59,7 +59,7 @@ If it is a draw that will also be acknowledged.
 - Extra game modes.
 
 ## Bugs
-
+- My spreadsheet kept updating the same row of cells in the worksheet. When I was refactoring the get_user_name function I added a row and player condition to the function which fixed the problem of updating the same cells.
 
 ## Testing
 

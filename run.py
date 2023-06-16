@@ -34,7 +34,7 @@ def welcome_message():
     print("Well Hello there and welcome to Tic-Tac-Toe")
     print("To win join three counters in a row before your opponent")
     print("A draw will accoure when neither players can place a counter")
-    print("To exit the game at any time press 'e")
+    print("To exit the game at any time press 'e'")
 
 
 def get_user_name(player, row):
@@ -124,7 +124,7 @@ while playing_game:
     print_board(coordinate)
     # Print statment of an invalid trun.
     if last_turn == turn:
-        print("Spot taken! Pick another spot and try again")
+        print("Spot taken or invalid input, try again")
     last_turn = turn
     print("Player " + str((turn % 2) + 1) + "'s turn: Pick your spot.")
     # Player input.
