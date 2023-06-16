@@ -61,7 +61,7 @@ def get_last_row_that_has_input():
     the google sheets cell, if so it goes to the next cell.
     """
     i = 1
-    if WORKSHEET.cell(i, 1).value is not None:
+    while WORKSHEET.cell(i, 1).value != None:
         i = i + 1
     return i
 

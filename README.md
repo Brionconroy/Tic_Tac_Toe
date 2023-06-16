@@ -41,6 +41,13 @@ If you have already picked a spot on the game board you will get message saying 
 
 You can exit the game at any time by pressing 'e'.
 
+## Updating Google sheets
+
+![](images/readme.md_images/google_sheet.png)
+
+The google sheets gets updated with the two users names and what the result of the game.
+
+
 ## Result section
 
 ![](images/readme.md_images/winning_notice.png)
@@ -71,6 +78,8 @@ I have tested this game in the following ways:
 - I tested the game in the terminal in Heroku, everything worked perfectly.
 
 ## Validation Testing
+
+![](images/readme.md_images/pep8_validation.png)
 
 No errors were found when passing through the PEP8 validator.
 
