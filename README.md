@@ -73,8 +73,8 @@ If it is a draw that will also be acknowledged.
 I have tested this game in the following ways:
 
 - I used the Ad-hoc test in Gitpod while I was making this game.
-- I manually tested the game by inputting in invalid data to the terminal, no errors were found.
-- I passed my code through the PEP8 validator with no errors.
+- I manually tested the game by inputting invalid data to the terminal spaces, numbers and symbols no errors were found.
+- I passed my code through the PEP8 validator with no significant errors.
 - I tested the game in the terminal in Heroku, everything worked perfectly.
 
 ## Validation Testing
@@ -100,6 +100,11 @@ Coding Institute's mock terminal app was used in Heroku.
 
 ## Content
 
-+ Code Institute love_sandwiches. [Coding Institute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LS101+2021_T1/courseware/293ee9d8ff3542d3b877137ed81b9a5b/c92755338ef548f28cc31a7c3d5bfb46/)
-+ How to add Json data to a file. [Stack over flow](https://stackoverflow.com/questions/12309269/how-do-i-write-json-data-to-a-file)
-+ Dictionary help and board display. [Youtube](https://www.youtube.com/watch?v=Q6CCdCBVypg)
+- Code Institute love_sandwiches. [Coding Institute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LS101+2021_T1/courseware/293ee9d8ff3542d3b877137ed81b9a5b/c92755338ef548f28cc31a7c3d5bfb46/)
+- How to add Json data to a file. [Stack over flow](https://stackoverflow.com/questions/12309269/how-do-i-write-json-data-to-a-file)
+- Dictionary help and board display. [Youtube](https://www.youtube.com/watch?v=Q6CCdCBVypg)
+
+## Python Libraries
+
+- [gspread](https://pythonhosted.org/gspread-dataframe/)  This was used for updating the google sheets.
+- [OS](https://docs.python.org/3/library/os.path.html)  This was used for updating the game board.
